@@ -1,13 +1,16 @@
 #!/bin/bash
 
-BITCOINCLI=/home/bitcoin/bin/bitcoin-cli
-MEMPOOLHOME=/home/mempool/mempool
-TMPFILE=/dev/shm/mempool-btc/rawdump.txt
+BITCOINCLI='/usr/bin/bitcoin-cli -conf=/etc/bitcoin/bitcoin.conf -datadir=/home/bitcoin/data/'
+MEMPOOLHOME=/home/mempool
+JSNAME=mempool
+DESTDIR=/dev/shm/mempool-btc
 mkdir -p /dev/shm/mempool-btc
 
 cd $MEMPOOLHOME
 rm -f $TMPFILE
-$BITCOINCLI getrawmempool true > $TMPFILE
-perl mempool-sql.pl < $TMPFILE
+$BITCOINCLI getrawmempool true > $DESTDIR/rawdump.txt
+perl mempool-sql.pl < $DESTDIR/rawdump.txt
 
-./mkdata.sh
+#./mkdata.sh
+./mkjs.py > $DESTDIR/$JSNAME.js.new
+mv $DESTDIR/$JSNAME.js.new $DESTDIR/$JSNAME.js

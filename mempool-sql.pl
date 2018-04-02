@@ -50,11 +50,12 @@ if ($found) {
     my $cnt  = join(",", @count);
     my $size = join(",", @total);
     my $fee  = join(",", @fees);
-    open(LOG, ">>$MEMPOOLLOG");
-    print LOG "[$time,[$cnt],[$size],[$fee]],\n";
+    open(LOG, ">$MEMPOOLLOG");
+    #print LOG "[$time,[$cnt],[$size],[$fee]],\n";
+    print LOG "[$time,[$size]],\n";
     close(LOG);
-    open(SQL, "|$MYSQL $MYSQLMEMPOOLDB");
-    $line = "INSERT INTO mempool VALUES($time,$cnt,$size,$fee);\n";
-    print SQL $line;
-    close SQL;
+    #open(SQL, "|$MYSQL $MYSQLMEMPOOLDB");
+    #$line = "INSERT INTO mempool VALUES($time,$cnt,$size,$fee);\n";
+    #print SQL $line;
+    #close SQL;
 }
