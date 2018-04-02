@@ -29,16 +29,19 @@ setup by running
 
     bitcoin-cli getmempoolinfo
 
+
 Testing :
+
     cd mempool
     ./mempool.sh
 
-You are almost ready now.  Check that everything works.  There should be a
-file `mempool.log` containing one line of statistics.  There should be
-newly created files in `/dev/shm/mempool-btc` that contain the dynamic data the
+Check that everything works. There should be a file `mempool.log` containing one line of statistics.
+There should be newly created files in `/dev/shm/mempool-btc` that contain the dynamic data the
 webserver should serve. In the webserver directory :
+
     ln -s /dev/shm/mempool-btc/mempool.js mempool.js
 
 Run :
+
     ./start-mempool.sh &
 
