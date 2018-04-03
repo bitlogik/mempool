@@ -4,7 +4,7 @@ BITCOINCLI='/usr/bin/bitcoin-cli -conf=/etc/bitcoin/bitcoin.conf -datadir=/home/
 MEMPOOLHOME=/home/mempool
 JSNAME=mempool
 DESTDIR=/dev/shm/mempool-btc
-mkdir -p /dev/shm/mempool-btc
+mkdir -p $DESTDIR
 
 cd $MEMPOOLHOME
 rm -f $TMPFILE
