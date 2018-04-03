@@ -3,6 +3,7 @@
 BITCOINCLI='/usr/bin/bitcoin-cli -conf=/etc/bitcoin/bitcoin.conf -datadir=/home/bitcoin/data/'
 MEMPOOLHOME=/home/mempool
 JSNAME=mempool
+APIFILE=api.json
 DESTDIR=/dev/shm/mempool-btc
 mkdir -p $DESTDIR
 
@@ -14,3 +15,5 @@ perl mempool-sql.pl < $DESTDIR/rawdump.txt
 #./mkdata.sh
 ./mkjs.py > $DESTDIR/$JSNAME.js.new
 mv $DESTDIR/$JSNAME.js.new $DESTDIR/$JSNAME.js
+
+cat $DESTDIR/$JSNAME.js | python buildAPI.py > $DESTDIR/$APIFILE

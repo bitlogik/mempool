@@ -40,6 +40,7 @@ There should be newly created files in `/dev/shm/mempool-btc` that contain the d
 webserver should serve. In the webserver directory :
 
     ln -s /dev/shm/mempool-btc/mempool.js mempool.js
+    ln -s /dev/shm/mempool-btc/api.json api.json
 
 Run :
 
