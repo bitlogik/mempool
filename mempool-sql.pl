@@ -2,10 +2,7 @@
 
 use List::Util qw[min max];
 
-my $SQLITE="sqlite3";
-my $MYSQL="mysql";
 my $MEMPOOLLOG="mempool.log";
-my $MYSQLMEMPOOLDB="btc_mempool";
 
 my @feelimit=(0.0001,1,2,3,4,5,6,7,8,10,12,14,17,20,25,30,40,50,60,70,80,100,120,140,170,200,250,300,400,500,600,700,800,1000,1200,1400,1700,2000,2500,3000,4000,5000,6000,7000,8000,10000,2100000000000000);
 my @total=();
@@ -54,8 +51,4 @@ if ($found) {
     #print LOG "[$time,[$cnt],[$size],[$fee]],\n";
     print LOG "[$time,[$size]],\n";
     close(LOG);
-    #open(SQL, "|$MYSQL $MYSQLMEMPOOLDB");
-    #$line = "INSERT INTO mempool VALUES($time,$cnt,$size,$fee);\n";
-    #print SQL $line;
-    #close SQL;
 }
