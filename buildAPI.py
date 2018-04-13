@@ -11,6 +11,8 @@ ranges = [1,2,3,4,5,6,7,8,10,12,14,17,20,25,30,40,50,60,70,80,100,120,
 	2500,3000,4000,5000,6000,7000,8000,10000];
 TxSzArrayMB = map(lambda x: x/1000000.0, TxSzArray[1])
 iFast = len(filter(lambda x: x>1, TxSzArrayMB))
+if iFast = 0:
+	iFast = 1
 iMed = len(filter(lambda x: x>4, TxSzArrayMB))
 iSlow = len(filter(lambda x: x>10, TxSzArrayMB))
 FastFee = ranges[iFast]
