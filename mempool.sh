@@ -10,10 +10,10 @@ mkdir -p $DESTDIR
 cd $MEMPOOLHOME
 rm -f $TMPFILE
 $BITCOINCLI getrawmempool true > $DESTDIR/rawdump.txt
-perl mempool-sql.pl < $DESTDIR/rawdump.txt
+python3 mempool-sql.py < $DESTDIR/rawdump.txt
 
 #./mkdata.sh
-./mkjs.py > $DESTDIR/$JSNAME.js.new
+python3 mkjs.py > $DESTDIR/$JSNAME.js.new
 mv $DESTDIR/$JSNAME.js.new $DESTDIR/$JSNAME.js
 
-cat $DESTDIR/$JSNAME.js | python buildAPI.py > $DESTDIR/$APIFILE
+cat $DESTDIR/$JSNAME.js | python3 buildAPI.py > $DESTDIR/$APIFILE

@@ -15,6 +15,8 @@ The idea is to sort all transactions in the mempool from the highest fee to the 
 
 ## Installation:
 
+Only requires a system with sh and python3.
+
 You need to run a bitcoin full node. It can be a pruned node or an
 archival node. I assume you have already set it up. You also need to
 support RPC to this node. Add rpcuser/rpcpassword to bitcoin.conf to enable
